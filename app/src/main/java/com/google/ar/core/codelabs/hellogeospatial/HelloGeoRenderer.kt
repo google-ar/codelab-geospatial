@@ -197,7 +197,26 @@ class HelloGeoRenderer(val activity: HelloGeoActivity) :
   var earthAnchor: Anchor? = null
 
   fun onMapClick(latLng: LatLng) {
-    // TODO: place an anchor at the given position.
+    val earth = session?.earth ?: return
+    if (earth.trackingState != TrackingState.TRACKING) {
+      return
+    }
+    earthAnchor?.detach()
+
+    // Place the earth anchor at the same altitude as that of the camera to make it easier to view.
+    val cameraGeospatialPose = earth.cameraGeospatialPose
+    val altitude = cameraGeospatialPose.altitude - 1
+    // The rotation quaternion of the anchor in EUS coordinates.
+    val qx = 0f
+    val qy = 0f
+    val qz = 0f
+    val qw = 1f
+    earthAnchor = earth.createAnchor(latLng.latitude, latLng.longitude, altitude, qx, qy, qz, qw)
+
+    activity.view.mapView?.earthMarker?.apply {
+      position = latLng
+      isVisible = true
+    }
   }
 
   private fun SampleRender.renderCompassAtAnchor(anchor: Anchor) {

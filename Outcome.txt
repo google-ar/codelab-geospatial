@@ -1,0 +1,5 @@
+The new ARCore Geospatial API grants a new aspect to Augmented Reality, allowing you to place location-specific Augmented Reality waypoints around real-world landmarks.
+What you will learn from this project?
+How to set up an ARCore project that uses the Geospatial API.
+How to request geographical data from the Geospatial API and display it using Google Maps.
+How to place an Anchor that's attached to a real-world location.

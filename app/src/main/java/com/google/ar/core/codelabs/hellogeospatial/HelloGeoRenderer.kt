@@ -40,8 +40,8 @@ class HelloGeoRenderer(val activity: HelloGeoActivity) :
   companion object {
     val TAG = "HelloGeoRenderer"
 
-    private val Z_NEAR = 0.1f
-    private val Z_FAR = 1000f
+    private const val Z_NEAR = 0.1f
+    private const val Z_FAR = 1000f
   }
 
   lateinit var backgroundRenderer: BackgroundRenderer
@@ -92,7 +92,7 @@ class HelloGeoRenderer(val activity: HelloGeoActivity) :
           Texture.ColorFormat.SRGB
         )
 
-      virtualObjectMesh = Mesh.createFromAsset(render, "models/geospatial_marker.obj");
+      virtualObjectMesh = Mesh.createFromAsset(render, "models/geospatial_marker.obj")
       virtualObjectShader =
         Shader.createFromAssets(
           render,

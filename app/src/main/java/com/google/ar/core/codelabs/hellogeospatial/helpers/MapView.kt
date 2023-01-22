@@ -90,7 +90,7 @@ class MapView(val activity: HelloGeoActivity, val googleMap: GoogleMap) {
     color: Int,
   ): Marker {
     val markersOptions = MarkerOptions()
-      .position(LatLng(0.0,0.0))
+      .position(LatLng(0.0, 0.0))
       .draggable(false)
       .anchor(0.5f, 0.5f)
       .flat(true)
